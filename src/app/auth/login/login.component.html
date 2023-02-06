@@ -1,0 +1,49 @@
+
+<div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="card" style="width: 500px;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Attendance System</h5>
+        <form #loginForm = "ngForm">
+            <div class="mb-3">
+                <label for="email" class="form-label"
+                  >Email*</label
+                >
+                <input
+                  name = "email"
+                  ngModel
+                  type="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  required
+                  #email="ngModel"
+                />
+                <p class="text-danger" *ngIf="email.invalid && email.touched">pls enter email ^_^</p>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label"
+                >Password*</label
+                >
+                <input
+                name = "password"
+                ngModel
+                type="password"
+                class="form-control"
+                placeholder="************"
+                required
+                minlength="8"
+                #password="ngModel"
+                />
+                <p class="text-danger" *ngIf="password.invalid && password.touched">pls enter password ^__^</p>
+              </div>
+        </form>
+        <div class="text-center">
+          <button type="button" (click) = "submit(loginForm)" class="btn btn-primary" [disabled]="password.invalid &&email.invalid">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mb-3">
+       <button class="btn btn-warning" routerLink="student">Student</button>
+    <button class="btn btn-secondary" routerLink="class">Class</button>
+    <button class="btn btn-primary" routerLink="teacher">Teacher</button>
+  </div>
